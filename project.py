@@ -1,3 +1,5 @@
+
+
 class Tsp:
     def __init__(self,filename):
         self.Mylist=[]
@@ -6,11 +8,12 @@ class Tsp:
         self.cordinate=self.Mylist[1]
         self.distance=self.distance()
 
+
+
     def myList(self,filename):
         f = open(filename)
         cities=[]
-        x=[]
-        y=[]
+ 
         cordxy=[]
         for line in f:
             alist = line.split(';') 
@@ -24,9 +27,8 @@ class Tsp:
         self.Mylist.extend([cities,cordxy])
         f.close()
         return(self.Mylist)
-                            
-        
-    def distance(self,):
+
+    def distance(self):
         dis=[]
         size=len(self.cordinate)
         for cd in range(0,size):
@@ -37,10 +39,16 @@ class Tsp:
                 deem.append(me*56.9)
             dis.append(deem)
         return(dis)
+
+    def getcityanddistance(self,n):
+        return(self.cities[n],self.distance[n])
+        
+
             
 t = Tsp('tour48pro.csv')
-#print(t.distance)
-for i in range (len(t.distance)):
+
+print(t.getcityanddistance(2))
+
+
+
     
-    print(t.distance[i])
-    print()
