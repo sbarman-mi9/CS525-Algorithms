@@ -3,10 +3,10 @@
 class Tsp:
     def __init__(self,filename):
         self.Mylist=[]
-        self.Mylist= self.myList(filename)
-        self.cities=self.Mylist[0]
-        self.cordinate=self.Mylist[1]
-        self.distance=self.distance()
+        self.Mylist= self.myList(filename)  # The function myList(self) reads the file and put the names of cities and x,y cordinates in two diffrent list eg[[cities],[(x,y)]] 
+        self.cities=self.Mylist[0]                  # This is a list containing cities only ie. [cities]
+        self.cordinate=self.Mylist[1]           # This list contains cordinates point only 
+        self.distance=self.distance()           # This is a list of distance for the entire data. this list contains 50 sublist [[list1],[list2]...........[list50]]
 
 
 
@@ -40,14 +40,22 @@ class Tsp:
             dis.append(deem)
         return(dis)
 
-    def getcityanddistance(self,n):
+    def getcityanddistance(self,n):                     # This methods returns the name of the city and its distance from each city
         return(self.cities[n],self.distance[n])
         
 
             
-t = Tsp('tour48pro.csv')
-
+t = Tsp('tour48pro.csv')   # To test the function
+print(t.Mylist)
+print()
+print(t.cordinate)
+print()
+print(t.cities)
+print()
 print(t.getcityanddistance(2))
+print()
+
+
 
 
 
